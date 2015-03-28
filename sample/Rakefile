@@ -1,0 +1,8 @@
+task :upstart do
+  sh 'foreman',
+    'export',
+    'upstart',
+    '--app', 'simple-server',
+    '--user', ENV['USER'],
+    '/tmp'
+end
