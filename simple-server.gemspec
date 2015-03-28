@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description   = %q{
     SimpleServer provides a simple web server.
   }
-  s.homepage      = 'http://github.com/jslabovitz/mill'
+  s.homepage      = 'http://github.com/jslabovitz/simple-server'
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
