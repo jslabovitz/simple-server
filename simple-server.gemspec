@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'addressable'
   s.add_dependency 'path'
   s.add_dependency 'sinatra'
+  s.add_dependency 'puma'
 
   s.add_development_dependency 'bundler'
   s.add_development_dependency 'rake'
