@@ -16,19 +16,18 @@ class SimpleServer < Sinatra::Base
   end
 
   def path_for_uri(uri)
-    Path.new(settings.root) / 'sites' / uri.host / Path.new(uri.normalized_path).relative_to('/')
+    path = Path.new(settings.root) / 'sites' / normalized_host(uri.host) / Path.new(uri.normalized_path).relative_to('/')
+    path /= 'index.html' if uri.normalized_path[-1] == '/'
+    path
   end
 
   def normalized_host(host)
     host ||= settings.default_host
-    host.gsub(/^www\./, '').gsub(/\..*?$/, '')
+    host.downcase.gsub(/^www\./, '').gsub(/\..*?$/, '').gsub(/[^a-z0-9.]/, '')
   end
 
   get '*' do
-    uri = Addressable::URI.parse(params[:splat].first)
-    uri.scheme = 'http'
-    uri.host = normalized_host(request.host)
-    uri.path += 'index.html' if uri.normalized_path[-1] == '/'
+    uri = Addressable::URI.parse(request.url)
     path = path_for_uri(uri)
     if path.basename.to_s[0] == '.'
       logger.info "#{uri} => hidden file: denying"
