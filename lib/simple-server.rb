@@ -9,6 +9,7 @@ class SimpleServer < Sinatra::Base
 
   configure do
     enable :logging
+    enable :multihosting
   end
 
   before do
@@ -16,8 +17,8 @@ class SimpleServer < Sinatra::Base
   end
 
   def path_for_uri(uri)
-    path = Path.new(settings.root) / 'sites'
-    path /= (uri.normalized_host ||= settings.default_host).sub(/^(www|web).*?\./, '')
+    path = Path.new(settings.root)
+    path /= (uri.normalized_host ||= settings.default_host).sub(/^(www|web).*?\./, '') if settings.multihosting
     path /= Path.new(Addressable::URI.unencode_component(uri.normalized_path)).relative_to('/')
     path /= 'index.html' if uri.normalized_path[-1] == '/'
     path
