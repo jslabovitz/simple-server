@@ -6,7 +6,7 @@ require 'yaml'
 
 class SimpleServer < Sinatra::Base
 
-  VERSION = '0.1'
+  VERSION = '0.2'
 
   configure do
     enable :logging
