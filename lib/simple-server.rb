@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'addressable/uri'
+require 'addressable'
 require 'path'
 require 'pp'
 require 'yaml'
