@@ -2,7 +2,6 @@ require 'sinatra/base'
 require 'addressable'
 require 'path'
 require 'pp'
-require 'yaml'
 
 class SimpleServer < Sinatra::Base
 
@@ -46,9 +45,10 @@ class SimpleServer < Sinatra::Base
       logger.info "#{uri} (#{path}): implicit directory: redirecting"
       return redirect "#{uri.path}/"
     elsif (redirect_path = path.add_extension('.redirect')).exist?
-      redirect = YAML.load(redirect_path.read)
-      logger.info "#{uri} (#{path}): redirecting via #{redirect[:code]} to #{redirect[:uri]}"
-      return redirect redirect[:uri], redirect[:code]
+      redirect_uri, redirect_code = redirect_path.read.split(/\s+/, 2)
+      redirect_code = redirect_code.to_i unless redirect_code.to_s.empty?
+      logger.info "#{uri} (#{path}): redirecting via #{redirect_code} to #{redirect_uri}"
+      return redirect redirect_uri, redirect_code
     elsif path.file?
       logger.info "#{uri} (#{path}): direct file: serving"
       return send_file(path)
