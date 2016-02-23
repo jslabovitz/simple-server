@@ -5,7 +5,7 @@ require 'pp'
 
 class SimpleServer < Sinatra::Base
 
-  VERSION = '0.2'
+  VERSION = '0.3'
 
   configure do
     enable :logging
