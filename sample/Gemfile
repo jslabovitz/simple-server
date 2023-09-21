@@ -1,3 +1,3 @@
 source 'https://rubygems.org'
 
-gem 'simple-server', git: 'https://github.com/jslabovitz/simple-server.git'
+gem 'simple-server', path: '..'
