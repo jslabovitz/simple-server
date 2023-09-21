@@ -1,13 +1,8 @@
 #encoding: utf-8
 
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-
-require 'simple-server'
-
 Gem::Specification.new do |s|
   s.name          = 'simple-server'
-  s.version       = SimpleServer::VERSION
+  s.version       = '0.4'
   s.summary       = 'A simple web server.'
   s.author        = 'John Labovitz'
   s.email         = 'johnl@johnlabovitz.com'
@@ -20,11 +15,11 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_path  = 'lib'
 
-  s.add_dependency 'addressable'
-  s.add_dependency 'path'
-  s.add_dependency 'sinatra'
-  s.add_dependency 'puma'
+  s.add_dependency 'addressable', '~> 2.8'
+  s.add_dependency 'path', '~> 2.1'
+  s.add_dependency 'sinatra', '~> 3.1'
+  s.add_dependency 'puma', '~> 6.4'
 
-  s.add_development_dependency 'bundler'
-  s.add_development_dependency 'rake'
+  s.add_development_dependency 'bundler', '~> 2.4'
+  s.add_development_dependency 'rake', '~> 13.0'
 end

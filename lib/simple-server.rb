@@ -1,11 +1,8 @@
 require 'sinatra/base'
 require 'addressable'
 require 'path'
-require 'pp'
 
 class SimpleServer < Sinatra::Base
-
-  VERSION = '0.3'
 
   configure do
     enable :logging
