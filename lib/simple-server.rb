@@ -17,7 +17,7 @@ class SimpleServer < Sinatra::Base
     path = Path.new(settings.root)
     path /= (uri.normalized_host ||= settings.default_host).sub(/^(www|web|test|dev).*?\./, '') if settings.multihosting
     path /= Path.new(Addressable::URI.unencode_component(uri.normalized_path)).relative_to('/')
-    path /= 'index.html' if uri.normalized_path[-1] == '/'
+    path /= 'index.html' if uri.normalized_path.end_with?('/')
     path
   end
 
