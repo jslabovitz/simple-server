@@ -17,9 +17,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'addressable', '~> 2.8'
   s.add_dependency 'path', '~> 2.1'
-  s.add_dependency 'sinatra', '~> 3.1'
-  s.add_dependency 'puma', '~> 6.4'
+  s.add_dependency 'sinatra', '~> 4.1'
+  s.add_dependency 'puma', '~> 6.6'
 
-  s.add_development_dependency 'bundler', '~> 2.4'
-  s.add_development_dependency 'rake', '~> 13.0'
+  s.add_development_dependency 'bundler', '~> 2.7'
+  s.add_development_dependency 'rake', '~> 13.3'
 end
