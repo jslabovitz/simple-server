@@ -7,6 +7,7 @@ class SimpleServer < Sinatra::Base
   configure do
     enable :logging
     enable :multihosting
+    set :host_authorization, { permitted_hosts: [] }
   end
 
   before do
