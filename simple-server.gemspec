@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name          = 'simple-server'
-  s.version       = '0.4'
+  s.version       = '0.5'
   s.summary       = 'A simple web server.'
   s.author        = 'John Labovitz'
   s.email         = 'johnl@johnlabovitz.com'
@@ -17,9 +17,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'addressable', '~> 2.8'
   s.add_dependency 'path', '~> 2.1'
-  s.add_dependency 'sinatra', '~> 4.1'
-  s.add_dependency 'puma', '~> 7.0'
+  s.add_dependency 'sinatra', '~> 4.2'
+  s.add_dependency 'puma', '~> 7.1'
 
-  s.add_development_dependency 'bundler', '~> 2.7'
   s.add_development_dependency 'rake', '~> 13.3'
+  s.add_development_dependency 'simple-rack-tasks', '~> 0.1'
 end

@@ -1,1 +1,1 @@
-require 'bundler/gem_tasks'
+require 'simple-rake-tasks'
